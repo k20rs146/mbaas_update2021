@@ -11,8 +11,9 @@
   <script src="keys.js"></script>
   <script>
     let ncmb = new NCMB(appKey, clientKey);
-    let UTdata = ncmb.DataStore("UpdateTest");
-    let key = "score";
+    let UTdata = ncmb.DataStore("Spending");
+    let key = "amount";
+    
 
     function enterData() {
       let uTdata = new UTdata();
@@ -124,8 +125,8 @@
 <body>
   <h1 class="text-light bg-secondary">mbaas update</h1>
   <div>
-    <input type="text" id="data" placeholder="スコア">
-    <a onclick="enterData()" class="btn btn-outline-secondary" role="button">Enter</a>
+    <input type="text" id="data" placeholder="金額">
+    <a onclick="enterData()" class="btn btn-outline-secondary" role="button">登録</a>
   </div>
   <div>
     <a onclick="fetchAll()" class="btn btn-outline-secondary" role="buton">Fetch All</a>

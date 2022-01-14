@@ -56,11 +56,12 @@
     }
 
     function sortData() {
-      UTdata.order(key, true).fetchAll()
+      UTdata.order(key2, true).fetchAll()
         .then(function(results) {
           let msg = "";
           for (let i = 0; i < results.length; i++) {
-            msg += results[i].get(key2) + "<br>";
+           msg += results[i].get(key)+" ";
+           msg += results[i].get(key2) + "円" +"<br>";
           }
           $("#display").removeClass();
           $("#display").addClass("text-light");
@@ -85,7 +86,8 @@
         $("#display").removeClass();
         $("#display").addClass("text-light");
         $("#display").addClass("bg-primary");
-        $("#display").html(msg);
+        $("#display").html(msg + "円");
+        
       })
       .catch(function(error){
         $("#display").removeClass();
@@ -124,49 +126,25 @@
           $("#display").html("count fail:" + JSON.stringify(error));
         })
     }
-
-    function updateData() {
-      UTdata.fetch()
-        .then(function(results) {
-          let value = parseInt($("#update").val());
-          results.set(key2, value);
-          return results.update();
-        })
-        .then(function(results) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-success");
-          $("#display").html("update success");
-        })
-        .catch(function(error) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-warning");
-          $("#display").html("update fail:" + JSON.stringify(error));
-        })
-    }
   </script>
 </head>
 
 <body>
-  <h1 class="text-light bg-secondary">mbaas update</h1>
+  <h1 class="text-light bg-secondary">収支アプリ</h1>
   <div>
     <input type="text" id="data" placeholder="もの">
     <input type="text" id="data2" placeholder="金額">
     <a onclick="enterData()" class="btn btn-outline-secondary" role="button">登録</a>
   </div>
   <div>
-    <a onclick="fetchAll()" class="btn btn-outline-secondary" role="buton">Fetch All</a>
-    <a onclick="sortData()" class="btn btn-outline-secondary" role="button">Sort</a>
-    <a onclick="countData()" class="btn btn-outline-secondary" role="button">Count</a>
-    <a onclick="totalData()" class="btn btn-outline-secondary" role="button">Total</a>
-    <a onclick="deleteData()" class="btn btn-outline-secondary" role="buton">Delete</a>
-  </div>
-  <div>
-    <input type="text" id="update" placeholder="更新">
-    <a onclick="updateData()" class="btn btn-outline-primary" role="button">Update</a>
+    <a onclick="fetchAll()" class="btn btn-outline-secondary" role="buton">すべて表示</a>
+    <a onclick="sortData()" class="btn btn-outline-secondary" role="button">並び替え</a>
+    <a onclick="countData()" class="btn btn-outline-secondary" role="button">カウント</a>
+    <a onclick="totalData()" class="btn btn-outline-secondary" role="button">合計</a>
+    <a onclick="deleteData()" class="btn btn-outline-secondary" role="buton">削除</a>
   </div>
   <div id="display" class="text-light bg-info">
     Results
   </div>
 </body>
-
 </html>

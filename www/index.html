@@ -130,17 +130,17 @@
 </head>
 
 <body>
-  <h1 class="text-light bg-secondary">収支アプリ</h1>
+  <h1 class="alert-primary">収支アプリ</h1>
   <div>
     <input type="text" id="data" placeholder="もの">
     <input type="text" id="data2" placeholder="金額">
-    <a onclick="enterData()" class="btn btn-outline-secondary" role="button">登録</a>
+    <a onclick="enterData()" class="btn btn-outline-primary" role="button">登録</a>
   </div>
   <div>
-    <a onclick="fetchAll()" class="btn btn-outline-secondary" role="buton">すべて表示</a>
-    <a onclick="sortData()" class="btn btn-outline-secondary" role="button">並び替え</a>
-    <a onclick="countData()" class="btn btn-outline-secondary" role="button">カウント</a>
-    <a onclick="totalData()" class="btn btn-outline-secondary" role="button">合計</a>
+    <a onclick="fetchAll()" class="btn btn-outline-success" role="buton">表示</a>
+    <a onclick="sortData()" class="btn btn-outline-danger" role="button">並び替え</a>
+    <a onclick="countData()" class="btn btn-outline-warning" role="button">カウント</a>
+    <a onclick="totalData()" class="btn btn-outline-info" role="button">合計</a>
     <a onclick="deleteData()" class="btn btn-outline-secondary" role="buton">削除</a>
   </div>
   <div id="display" class="text-light bg-info">
